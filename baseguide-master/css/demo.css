@@ -1,0 +1,54 @@
+section {
+	margin-top: 15px;
+	padding-top: 15px;
+	border-top: 0.2em solid #efefef;
+}
+
+section:first-child {
+	margin-top: 0;
+	border-top: 0;
+}
+
+.intro {
+	padding-bottom: 15px;
+	border-bottom: 1px solid #efefef;
+	background: #f7f7f7;
+}
+
+@media (min-width: 48em) {
+	section {
+		margin-top: 30px;
+		padding-top: 30px;
+	}
+
+	.intro {
+		padding-bottom: 30px;
+	}
+}
+
+.col {
+	margin-bottom: 1.45em;
+}
+
+.col > span {
+	display: block;
+	padding: 1em;
+	background: #efefef;
+}
+
+.form-group > .btn,
+.form-group > .btn-secondary {
+	margin-bottom: 0.2em;
+}
+
+.btn-group {
+	word-spacing: 0.3em;
+}
+
+.btn-group > a {
+	word-spacing: normal;
+}
+
+.media p {
+	margin-bottom: 0;
+}

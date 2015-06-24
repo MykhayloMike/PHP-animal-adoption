@@ -1,0 +1,13 @@
+.table {
+	width: 100%;
+	max-width: 100%;
+
+	th, td {
+		padding: $table-padding-vertical $table-padding-horizontal;
+		border-bottom: 1px solid $table-border-color;
+	}
+
+	th {
+		text-align: left;
+	}
+}
