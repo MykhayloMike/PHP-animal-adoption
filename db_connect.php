@@ -1,4 +1,5 @@
 <?php 
+	// Tester Toster Vova
 	// Connection to database code
 	$host = "localhost";
 	$user = "root";
