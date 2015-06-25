@@ -16,4 +16,9 @@
          }
 	
 	mysqli_select_db($link, $db);
+
+	header("Location: /PHP-animal-adoption/login.php"); /* Re-directing browser to the login page */
+
+	/* Make sure no code is run after re-direct to the login page.*/
+	exit;
 ?>

@@ -54,11 +54,11 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 <section id="userSection"  class="container">
 	<nav>
 		<ul class="list-equal">
-			<li><a href="/coursework/userHomePage.php">Home page</a></li>
+			<li><a href="/PHP-animal-adoption/userHomePage.php">Home page</a></li>
 			<li>Animals available for adoption</li>
-			<li><a href="/coursework/userAdoptionRequests.php">Adoption Requests</a></li>
+			<li><a href="/PHP-animal-adoption/userAdoptionRequests.php">Adoption Requests</a></li>
 			<li><a href="#"></a></li>
-			<li><a href="/coursework/log_out.php">Log out</a></li>
+			<li><a href="/PHP-animal-adoption/log_out.php">Log out</a></li>
 		</ul>
 	</nav>
 	<h1>Adoption page</h1>
@@ -85,7 +85,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 						   <th></th>
 						   </tr>";
 					foreach($result as $row) {					
-						$adoptUrl = '/coursework/userAvailableAdoptionPage.php?animalId=' . $row['animalId'];					
+						$adoptUrl = '/PHP-animal-adoption/userAvailableAdoptionPage.php?animalId=' . $row['animalId'];					
 						$row['dateofbirth'] = date("Y-m-d");
 						echo "<tr>";
 						echo '<td>' . $row['name'] . "</td>";

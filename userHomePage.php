@@ -32,10 +32,10 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 	<nav>
 		<ul class="list-equal">
 			<li>Home page</li>
-			<li><a href="/coursework/userAvailableAdoptionPage.php">Animals available for adoption</a></li>
-			<li><a href="/coursework/userAdoptionRequests.php">Adoption Requests</a></li>
+			<li><a href="/PHP-animal-adoption/userAvailableAdoptionPage.php">Animals available for adoption</a></li>
+			<li><a href="/PHP-animal-adoption/userAdoptionRequests.php">Adoption Requests</a></li>
 			<li><a href="#"></a></li>
-			<li><a href="/coursework/log_out.php">Log out</a></li>
+			<li><a href="/PHP-animal-adoption/log_out.php">Log out</a></li>
 		</ul>
 	</nav>
 	<h1>Home page</h1>

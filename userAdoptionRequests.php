@@ -31,11 +31,11 @@
 <section id="userSection"  class="container">
 	<nav>
 		<ul class="list-equal">
-			<li><a href="/coursework/userHomePage.php">Home page</a></li>
-			<li><a href="/coursework/userAvailableAdoptionPage.php">Animals available for adoption</a></li>
+			<li><a href="/PHP-animal-adoption/userHomePage.php">Home page</a></li>
+			<li><a href="/PHP-animal-adoption/userAvailableAdoptionPage.php">Animals available for adoption</a></li>
 			<li>Adoption Requests</li>
 			<li><a href="#"></a></li>
-			<li><a href="/coursework/log_out.php">Log out</a></li>
+			<li><a href="/PHP-animal-adoption/log_out.php">Log out</a></li>
 		</ul>
 	</nav>
 	<h1>Adoption requests page</h1>
