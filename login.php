@@ -63,22 +63,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>	
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
+	<style>
+		#loginText {
+		text-align: center ;
+  		}
+		.loginBlock {
+		position: relative;
+		left: 15px;
+		}
+		#LoginError {
+		color: red;
+		}
+		#userError {
+		color: red;
+		}
+		#passError {
+		color: red;
+		}
+
+	</style>
     <meta charset="utf-8" />
     <title>PHP Log in page</title>
 	<link rel="stylesheet" href="baseguide-master/css/baseguide.min.css">
 	<link rel="stylesheet" href="baseguide-master/css/demo.css">
 </head>
 <body>
-	<h1>Login</h1>
+	<h1 id ="loginText">Login</h1>
 	<form action="login.php" method="POST">
-		<div id="LoginError" style="color:red">
+		<div id="LoginError">
 				<?php
 					echo ((isset($loginError) && $loginError != '') ? $loginError : '');
 				?>
 		</div>
-		<div>
+		<div class="loginBlock">
 			<div class="row form-group">
-				<div id="userError" style="color:red">
+				<div id="userError">
 					<?php
 						echo ((isset($usernameError) && $usernameError != '') ? $usernameError : '');
 					?>
@@ -93,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				</div>
 			</div>
 			<div class="row form-group">
-				<div id="passError" style="color:red">
+				<div id="passError">
 					<?php
 						echo ((isset($passwordError) && $passwordError != '') ? $passwordError : '');
 					?>
