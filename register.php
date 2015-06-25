@@ -126,7 +126,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST')
 				</div>
 				<div class="row form-group">
 					<div class="col-sm-4 col-sm-offset-2">
-						<input class="btn" type="submit" name="submit" value="Log in"/>
+						<a class="btn-secondary" href="login.php" role="button">Log in</a>
+						<input class="btn" type="submit" name="submit" value="Register"/>
 					</div>
 				</div>			
 			</div>	
