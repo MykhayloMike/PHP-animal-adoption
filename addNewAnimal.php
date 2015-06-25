@@ -95,6 +95,16 @@
 	<link rel="stylesheet" href="baseguide-master/css/demo.css">
 </head>
 <body>
+<section id="staffSection" class="container">
+	<nav>
+		<ul class="list-equal">
+			<li><a href="/PHP-animal-adoption/StaffHomePage.php">Home</a></li>
+			<li>Add Animal</li>
+			<li><a href="/PHP-animal-adoption/.php">Adoption Requests</a></li>
+			<li><a href="#"></a></li>
+			<li><a href="/PHP-animal-adoption/.php">Log out</a></li>
+		</ul>
+	</nav>
 	<h1>Add new animal</h1>
 	<div id="addAnimalPage" class="container" style="margin-right: 0; margin-left: 0;">
 		<section id="request">
@@ -190,5 +200,6 @@
 				</form>
 		</section>
 	</div>
+</section>
 </body>
 </html>
