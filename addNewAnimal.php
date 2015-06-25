@@ -43,9 +43,9 @@
 			$animalType = $_POST['animalType'];
 		}
 		
-		if(isset($_POST['fileToUpdate']))
+		if(isset($_FILES["fileToUpdate"]["name"]))
 		{
-			$fileToUpdate = $_POST['fileToUpdate'];
+			$fileToUpdate = $_FILES["fileToUpdate"]["name"];
 		}
 	
 		// Validation
@@ -69,21 +69,18 @@
 			if(($animalType == '') == 1){
 				$animalTypeError = "Animal type is mandatory";  
 			}
-			if(($fileToUpdate == '') == 1){
+			if(($fileToUpdate == '') == 1){				
 				$fileToUpdateError = "Photo is mandatory";  
 			}
 		}
-		
-		// Add new animal
-		 if(isset($_POST['radio']))
-		 {
-				if ($selected_radio == 'approved') {
-					// Add new animal
-					$result = mysqli_query($link, "INSERT INTO animal (name, dateofbirth, description, animaltype, photo) VALUES (". $_POST['name'] .", ". $_POST['dob'] .", ". $_POST['description'] .", ". $_POST['animalType'] .", ". $_POST['photo'] . ")");
-					header("Location: staffhomepage.php");
-					exit();
-				}
-		 }
+		else
+		{
+			exit();
+			// Add new animal
+			$result = mysqli_query($link, "INSERT INTO animal (name, dateofbirth, description, animaltype, photo) VALUES (". $_POST['name'] .", ". $_POST['dob'] .", ". $_POST['description'] .", ". $_POST['animalType'] .", ". $_FILES["fileToUpdate"]["tmp_name"] . ")");
+			include ("upload.php"); 
+			header("Location: staffhomepage.php");
+		}
 }
 ?>
 <!DOCTYPE html>	 
@@ -109,7 +106,7 @@
 	<div id="addAnimalPage" class="container" style="margin-right: 0; margin-left: 0;">
 		<section id="request">
 			<h2>Request</h2>
-			<form action="addNewAnimal.php" method="POST">
+			<form action="addNewAnimal.php" method="POST" enctype="multipart/form-data">
 					<?php
 						if((isset($nameError) && $nameError != ''))
 						{
@@ -175,10 +172,10 @@
 						</div>
 					</div>
 					<?php
-						if((isset($fileToUpdate) && $fileToUpdate != ''))
+						if((isset($fileToUpdateError) && $fileToUpdateError != ''))
 						{
-							echo '<div id="fileToUpdate" style="color:red">';					
-							echo $fileToUpdate;					
+							echo '<div id="fileToUpdateError" style="color:red">';					
+							echo $fileToUpdateError;					
 							echo '</div>';
 						}
 					?>
@@ -188,7 +185,7 @@
 								<label for="fileToUpdate">Photo:</label>
 							</div>
 							<div class="col col-sm-4">
-								<input id="fileToUpdate" type="file" name="fileToUpload" value="<?php echo (isset($_POST['fileToUpload'])) ? $_POST['fileToUpload'] : ''; ?>">
+								<input id="fileToUpdate" type="file" name="fileToUpdate" value="<?php echo (isset($_POST['fileToUpdate'])) ? $_POST['fileToUpdate'] : ''; ?>">
 							</div>
 						</div>
 					</div>
