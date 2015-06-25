@@ -59,7 +59,7 @@
 						echo "<tr>";
 						echo '<td>' . $row['name'] . "</td>";
 						echo '<td>' . $row['dateofbirth'] . "</td>";
-						echo '<td>' . $row['dateofbirth'] . "</td>";
+						echo '<td><img src = "images/' . $row['photo'] . "\" style=\"width: 150px; height: 90px;\"></td>";
 						echo '<td>' . $row['description'] . "</td>";
 						echo '<td>' . $row['animalType'] . "</td>";
 						echo "</tr>";
