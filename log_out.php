@@ -1,21 +1,8 @@
 <?php 
-	// Connection to database code
-	$host = "localhost";
-	$user = "root";
-	$pass = "";
-	$db = "angusdata";
+	session_start();
 
-	$usernameError = "";
-	$passwordError = "";
-	$loginError = "";
-	
-	$link = mysqli_connect($host, $user, $pass, $db);
-	if (!$link)
-         {
-            die('Could not connect: ' . mysql_error());
-         }
-	
-	mysqli_select_db($link, $db);
+	session_unset(); 
+	session_destroy(); 
 
 	header("Location: /PHP-animal-adoption/login.php"); /* Re-directing browser to the login page */
 
