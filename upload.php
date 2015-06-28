@@ -6,15 +6,14 @@ if (file_exists($save_file)) {
 else
 {
 	$imageFileType = pathinfo($save_file,PATHINFO_EXTENSION);
-	// Check if image file
 	if(isset($_POST["submit"])) {
-		$check = getimagesize($_FILES["fileToUpdate"]["tmp_name"]);
-		if($check !== false) {		
-			exit();		
+		// Allow only images
+		if($imageFileType == "jpg" || $imageFileType == "png" || $imageFileType == "jpeg"
+		|| $imageFileType == "gif" ) {
 			// Upload file
 			move_uploaded_file($_FILES["fileToUpdate"]["tmp_name"], $save_file);
 		} else {
-			$fileToUpdateError = "File is not an image.";
+			$fileToUpdateError = "Only JPG, JPEG, PNG & GIF files are allowed.";
 		}
 	}
 }

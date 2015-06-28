@@ -74,12 +74,16 @@
 			}
 		}
 		else
-		{
-			exit();
-			// Add new animal
-			$result = mysqli_query($link, "INSERT INTO animal (name, dateofbirth, description, animaltype, photo) VALUES (". $_POST['name'] .", ". $_POST['dob'] .", ". $_POST['description'] .", ". $_POST['animalType'] .", ". $_FILES["fileToUpdate"]["tmp_name"] . ")");
+		{			
 			include ("upload.php"); 
-			header("Location: staffhomepage.php");
+			if($fileToUpdateError == '' || $fileToUpdateError == null){
+				$dateAnimal=date("Y-m-d",strtotime($_POST['dob']));
+				
+				// Add new animal
+				$result = mysqli_query($link, "INSERT INTO animal (name, dateofbirth, description, animaltype, photo, available) VALUES ('". $_POST['name'] ."', ". $dateAnimal .", '". $_POST['description'] ."', '". $_POST['animalType'] ."', '". $_FILES["fileToUpdate"]["name"] . "', 1)");
+				header("Location: staffhomepage.php");
+			}
+			
 		}
 }
 ?>
