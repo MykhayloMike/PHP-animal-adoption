@@ -33,8 +33,8 @@
 		<ul class="list-equal">
 			<li><a href="/PHP-animal-adoption/StaffHomePage.php">Home</a></li>
 			<li><a href="/PHP-animal-adoption/addNewAnimal.php">Add Animal</a></li>
-			<li><a href="/PHP-animal-adoption/staffAllRequests.php">Adoption Requests</a></li>
-			<li>All Animals</li>
+			<li>Adoption Requests</li>
+			<li><a href="/PHP-animal-adoption/staffAllAnimals.php">All Animals</a></li>
 			<li><a href="/PHP-animal-adoption/log_out.php.php">Log out</a></li>
 		</ul>
 	</nav>
