@@ -31,67 +31,43 @@
 <section id="staffSection" class="container">
 	<nav>
 		<ul class="list-equal">
-			<li>Home</li>
+			<li><a href="/PHP-animal-adoption/StaffHomePage.php">Home</a></li>
 			<li><a href="/PHP-animal-adoption/addNewAnimal.php">Add Animal</a></li>
 			<li><a href="/PHP-animal-adoption/staffAllRequests.php">Adoption Requests</a></li>
-			<li><a href="/PHP-animal-adoption/staffAllAnimals.php">All Animals</a></li>
+			<li>All Animals</li>
 			<li><a href="/PHP-animal-adoption/log_out.php.php">Log out</a></li>
 		</ul>
 	</nav>
 	<h1>Home page</h1>
-	<div id="staffHomePage" class="container" style="margin-right: 0; margin-left: 0;">
-		<section id="forAdoption">
-			<h2>Animals available for adoption:</h2>
-			
-				<?php
-				// Animals available for adoption
-				$result = mysqli_query($link, "SELECT * FROM animal WHERE available = 1");
-				
-					echo "<table class='table'>
-						   <tr>
-						   <th>Animal Name</th>
-						   <th>Date of Birth</th>
-						   <th>Photos</th>
-						   <th>Description</th>
-						   <th>Animal type</th></tr>";
-					foreach($result as $row) {							
-						$row['dateofbirth'] = date("Y-m-d");
-						echo "<tr>";
-						echo '<td>' . $row['name'] . "</td>";
-						echo '<td>' . $row['dateofbirth'] . "</td>";
-						echo '<td><img src = "images/' . $row['photo'] . "\" style=\"width: 150px; height: 90px;\"></td>";
-						echo '<td>' . $row['description'] . "</td>";
-						echo '<td>' . $row['animalType'] . "</td>";
-						echo "</tr>";
-					}
-					echo "</table>";
-				?>
-			
-		</section>
+	<div id="staffAllRequests" class="container" style="margin-right: 0; margin-left: 0;">
 		<section id="adoptionRequest">
-			<h2>Pending adoption requests:</h2>
-			
+			<h2>All Adoption requests:</h2>			
 				<?php
 				// Animals available for adoption
-				$result = mysqli_query($link, "SELECT a.name, a.dateofbirth, r.userID, r.adoptionID
+				$result = mysqli_query($link, "SELECT a.name, a.dateofbirth, r.userID, r.approved
 												FROM adoptionrequest r, animal a
-												WHERE r.animalID = a.animalId
-												and r.approved IS NULL");
+												WHERE r.animalID = a.animalId");
 				
 					echo "<table class='table'>
 						   <tr>
 						   <th>User ID</th>
 						   <th>Animal Name</th>
 						   <th>Animal DOB</th>
-						   <th></th></tr>";
+						   <th>Status</th></tr>";
 					foreach($result as $row) {							
-						$row['dateofbirth'] = date("Y-m-d");
-						$approveUrl = '/PHP-animal-adoption/approveDenyAnimal.php?adoptionId=' . $row['adoptionID'];
+						$row['dateofbirth'] = date("Y-m-d");						
 						echo "<tr>";
 						echo '<td>' . $row['userID'] . "</td>";
 						echo '<td>' . $row['name'] . "</td>";
 						echo '<td>' . $row['dateofbirth'] . "</td>";
-						echo '<td>' . "<a href='". $approveUrl ."'>Approve/Decline</a>" . "</td>";
+						echo '<td>';
+						if($row['approved'] == '1')
+						{echo "Approved";} 
+						else if($row['approved'] == '0')
+						{echo "Declined";} 
+						else
+						{echo "Pending";}
+						echo "</td>";
 						echo "</tr>";
 					}
 					echo "</table>";

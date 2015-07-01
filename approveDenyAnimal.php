@@ -32,7 +32,6 @@
 						// Update adoption request
 						$result = mysqli_query($link, "UPDATE animal SET available = 1 WHERE animalId = ". $_POST['animalId']);
 						$result = mysqli_query($link, "UPDATE adoptionrequest SET approved = 0 WHERE adoptionID = ". $_POST['adoptionID']);
-						$result = mysqli_query($link, "UPDATE animal SET available = 1 WHERE animalId = ". $_POST['animalId']);
 						header("Location: staffhomepage.php");
 						exit();
 					}
@@ -48,11 +47,21 @@
 	<link rel="stylesheet" href="baseguide-master/css/demo.css">
 </head>
 <body>
+<section id="staffSection" class="container">
+	<nav>
+		<ul class="list-equal">
+			<li><a href="/PHP-animal-adoption/StaffHomePage.php">Home</a></li>
+			<li><a href="/PHP-animal-adoption/addNewAnimal.php">Add Animal</a></li>
+			<li>Adoption Requests</li>
+			<li><a href="/PHP-animal-adoption/staffAllRequests.php">All Animals</a></li>
+			<li><a href="/PHP-animal-adoption/log_out.php">Log out</a></li>
+		</ul>
+	</nav>
 	<h1>Approve request</h1>
 	<div id="approveRequestPage" class="container" style="margin-right: 0; margin-left: 0;">
 		<section id="request">
 			<h2>Request</h2>
-			<form action="approveAnimal.php" method="POST">					
+			<form action="approveDenyAnimal.php" method="POST">					
 					<?php				
 					if(isset($_GET['adoptionId']))
 					{
@@ -117,5 +126,6 @@
 				</form>
 		</section>
 	</div>
+</section>
 </body>
 </html>

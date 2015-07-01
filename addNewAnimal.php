@@ -101,9 +101,9 @@
 		<ul class="list-equal">
 			<li><a href="/PHP-animal-adoption/StaffHomePage.php">Home</a></li>
 			<li>Add Animal</li>
-			<li><a href="/PHP-animal-adoption/.php">Adoption Requests</a></li>
-			<li><a href="#"></a></li>
-			<li><a href="/PHP-animal-adoption/.php">Log out</a></li>
+			<li><a href="/PHP-animal-adoption/staffAllRequests.php">Adoption Requests</a></li>
+			<li><a href="/PHP-animal-adoption/staffAllAnimals.php">All Animals</a></li>
+			<li><a href="/PHP-animal-adoption/log_out.php">Log out</a></li>
 		</ul>
 	</nav>
 	<h1>Add new animal</h1>
