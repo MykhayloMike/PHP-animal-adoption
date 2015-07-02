@@ -35,7 +35,7 @@
 			<li><a href="/PHP-animal-adoption/addNewAnimal.php">Add Animal</a></li>
 			<li><a href="/PHP-animal-adoption/staffAllRequests.php">Adoption Requests</a></li>
 			<li>All Animals</li>
-			<li><a href="/PHP-animal-adoption/log_out.php.php">Log out</a></li>
+			<li><a href="/PHP-animal-adoption/log_out.php">Log out</a></li>
 		</ul>
 	</nav>
 	<h1>Home page</h1>

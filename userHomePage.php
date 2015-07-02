@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 			
 				<?php
 				// Users adopted animals
-				$result = mysqli_query($link, "SELECT * FROM animal WHERE available = 1");
+				$result = mysqli_query($link, "SELECT a.name, a.dateofbirth, a.description, a.photo, a.animalType FROM animal a, own o WHERE a.animalID = o.animalID and o.userID = " . $_SESSION['user']);
 				
 					echo "<table class='table'>
 						   <tr>
@@ -73,18 +73,27 @@ if($_SERVER['REQUEST_METHOD'] === 'GET')
 			
 				<?php
 				// Users adoption request
-				$result = mysqli_query($link, 'SELECT * FROM animal a, own o WHERE a.animalId = o.animalId and o.userId = ' . $_SESSION['user']);
+				$result = mysqli_query($link, 'SELECT a.name, a.dateofbirth, o.approved FROM animal a, adoptionrequest o WHERE a.animalId = o.animalID and o.userId = ' . $_SESSION['user']);
 				
 					echo "<table class='table'>
 						   <tr>
 						   <th>Animal Name</th>
 						   <th>Animal DOB</th>
+						   <th>Status</th>
 						   </tr>";
 					foreach($result as $row) {							
 						$row['dateofbirth'] = date("Y-m-d");
 						echo "<tr>";
 						echo '<td>' . $row['name'] . "</td>";
 						echo '<td>' . $row['dateofbirth'] . "</td>";
+						echo '<td>';
+						if($row['approved'] == '1')
+						{echo "Approved";} 
+						else if($row['approved'] == '0')
+						{echo "Declined";} 
+						else
+						{echo "Pending";}
+						echo "</td>";
 						echo "</tr>";
 					}
 					echo "</table>";

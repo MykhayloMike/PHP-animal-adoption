@@ -44,7 +44,7 @@
 			<h2>Your adoption requests:</h2>
 				<?php
 				// Users adoption request
-				$result = mysqli_query($link, 'SELECT a.name, a.dateofbirth, a.description, a.animalType, a.photo, a.available FROM animal a, adoptionrequest r WHERE a.animalId = r.animalID and r.userID = ' . $_SESSION['user']);
+				$result = mysqli_query($link, 'SELECT a.name, a.dateofbirth, a.description, a.animalType, a.photo, r.approved FROM animal a, adoptionrequest r WHERE a.animalId = r.animalID and r.userID = ' . $_SESSION['user']);
 				$numOfRows = mysqli_num_rows($result);
 
 					echo "<table class='table'>
@@ -52,7 +52,7 @@
 						   <th>Animal Name</th>
 						   <th>Animal DOB</th>
 						   <th>Photo</th>
-						   <th></th>
+						   <th>Status</th>
 						   </tr>";
 					if($numOfRows >= 1)
 					{
@@ -61,21 +61,16 @@
 							echo "<tr>";
 							echo '<td>' . $row['name'] . "</td>";
 							echo '<td>' . $row['dateofbirth'] . "</td>";
-							echo '<td>' . $row['dateofbirth'] . "</td>";
+							echo '<td><img src = "images/' . $row['photo'] . "\" style=\"width: 150px; height: 90px;\"></td>";
 							echo '<td>';
-							if(isset($_POST['animalId']) && ($_POST['animalId'] == 1))
-							{
-								echo "Approved";
-							}
-							else if(isset($_POST['animalId']) && ($_POST['animalId'] == 0))
-							{
-								echo "Declined";
-							}
-							else if(isset($_POST['animalId']) && ($_POST['animalId'] == null))
-							{
-								echo "Pending";
-							}
+							if($row['approved'] == '1')
+							{echo "Approved";} 
+							else if($row['approved'] == '0')
+							{echo "Declined";} 
+							else
+							{echo "Pending";}
 							echo "</td>";
+							
 							echo "</tr>";
 						}
 					}
